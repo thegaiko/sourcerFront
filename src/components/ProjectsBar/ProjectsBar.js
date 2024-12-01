@@ -13,9 +13,9 @@ function ProjectsBar() {
   const navigate = useNavigate(); // Hook for navigation
 
   const texts = [
-    { id: 1, label: 'AquaWave Motion', video: first, path: '/aqua-wave-motion' },
-    { id: 2, label: 'Deep Blue Horizon', video: second, path: '/deep-blue-horizon' },
-    { id: 3, label: 'Ultra Deep', video: third, path: '/ultra-deep' },
+    { id: 1, label: 'AquaWave Motion,', video: first, path: '/aqua-wave-motion' },
+    { id: 2, label: 'Deep Blue Horizon,', video: second, path: '/deep-blue-horizon' },
+    { id: 3, label: 'Ultra Deep,', video: third, path: '/ultra-deep' },
     { id: 4, label: 'Oceanic Dreamscapes', video: fourth, path: '/oceanic-dreamscapes' },
   ];
 

@@ -1,5 +1,68 @@
-.TeamBar {
-    background-color: aqua;
-    height: 100vh;
-    width: 100vw;
+.teamPhoto {
+    width: 70vw;
+    border-radius: 20px;
+    margin-left: 2vw;
+    transition: filter 0.3s ease; /* Плавный переход для эффекта блюра */
+}
+
+.point {
+    width: 100px;
+    height: 100px;
+    border: 0.3vw solid rgba(255, 255, 255, 0.8);  /* Белая рамка с прозрачностью */
+    border-radius: 20%;
+    background-color: rgba(255, 255, 255, 0);  /* Прозрачный фон */
+    position: absolute;
+    transition: transform 0.3s ease, background-image 0.3s ease;  /* Плавный эффект для увеличения и смены фона */
+}
+
+.point-hovered {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20vh; /* Увеличиваем размер точки при наведении */
+    height: 20vh;
+    border: none; /* Убираем рамку */
+}
+
+.teamateContainer {
+    position: absolute;
+    bottom: 5vh;  /* Размещение контейнера ниже изображения */
+    right: 5vw;   /* Размещение справа от изображения */
+    padding: 2vw;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamateName {
+    font-family: 'Noto Sans';
+    font-weight: 600;
+    font-size: 10vh;
+    margin-right: 10vw;
+}
+
+.teamatePosition {
+    font-size: 4vh;
+    font-weight: 400;
+    margin-right: 10vw;
+}
+
+.teamateImage {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%; /* Картинка круглая */
+    margin-top: 1vh;
+}
+
+.blur {
+    filter: blur(5px);  /* Эффект размытия */
+}
+
+.point:hover {
+    transform: scale(1.2); /* Увеличение точки при наведении */
 }

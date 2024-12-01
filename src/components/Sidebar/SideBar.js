@@ -17,8 +17,8 @@ const menuList = [
   },
   {
     header: "Projects",
-    marginBottom: 52, // Уникальный отступ
-    textList: [{ high: "Projects", low: "We guide the visual and conceptual aspects of projects, ensuring cohesive messaging and emotional resonance.", video: "third.mp4" }],
+    marginBottom: 45, // Уникальный отступ
+    textList: [{ high: "We guide the visual and conceptual aspects of projects, ensuring cohesive messaging and emotional resonance.", low: "", video: "third.mp4" }],
   },
   {
     header: "Our team",
