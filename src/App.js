@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Main from './Main'
+import AquaWavePage from './pages/AquaWavePage';
+import DeepBluePage from './pages/DeepBluePage.js';
+import UltraDeepPage from './pages/UltraDeepPage';
+import OceanicDreamPage from './pages/OceanicDreamPage';
+import Grisha from './pages/Grisha'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/Grisha" element={<Grisha />} />
+        <Route path="/aqua-wave-motion" element={<AquaWavePage />} />
+        <Route path="/deep-blue-horizon" element={<DeepBluePage />} />
+        <Route path="/ultra-deep" element={<UltraDeepPage />} />
+        <Route path="/oceanic-dreamscapes" element={<OceanicDreamPage />} />
+      </Routes>
+    </Router>
   );
 }
 
