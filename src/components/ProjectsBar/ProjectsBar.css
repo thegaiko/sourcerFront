@@ -72,6 +72,13 @@
     position: relative;
     z-index: 1;
   }
+
+  .headText.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  
   
   @keyframes fadeIn {
     from {

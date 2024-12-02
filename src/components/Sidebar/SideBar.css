@@ -45,12 +45,19 @@
 .sideBarBlockHeadText {
     font-family: 'Noto Sans';
     font-style: normal;
-    font-weight: 500;
-    font-size: 2.4vh;
+    font-weight: 600;
+    font-size: 2vh;
     line-height: 110%;
     color: #000000;
-    transition: margin-bottom 0.3s ease; /* Плавный переход для margin-bottom */
+    opacity: 0.6; /* Начальная прозрачность */
+    transition: opacity 0.3s ease; /* Плавный переход для прозрачности */
+    cursor: pointer; /* Указатель мыши */
 }
+
+.sideBarBlockHeadText.active {
+    opacity: 1; /* Прозрачность при активном состоянии */
+}
+
 
 
 .sideBarBlockHeadText.expanded {
@@ -60,21 +67,45 @@
 .sideBarBlockText {
     font-family: 'Noto Sans';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 2vh;
     line-height: 110%;
     margin-top: 2vh;
     margin-bottom: 1vh;
     color: #000000;
-    opacity: 0.8;
+    opacity: 0.4; /* Начальная прозрачность */
+    transition: opacity 0.3s ease; /* Плавный переход */
+    cursor: pointer; /* Указатель мыши */
 }
+
+.sideBarBlockText.active {
+    opacity: 1; /* Прозрачность при активном состоянии */
+}
+
 
 .sideBarBlockLowText {
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 450;
-    font-size: 1.6vh;
+    font-size: 1.4vh;
     line-height: 140%;
     opacity: 0.6;
     color: #000000;
+}
+
+/* Блок для Get in touch */
+.getInTouchBlock {
+    background: black;
+    border: 0.1vh solid rgba(255, 140, 0, 0.4); /* Оранжевая рамка */
+}
+
+/* Заголовок для Get in touch */
+.getInTouchHeadText {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600; /* Более жирный шрифт */
+    font-size: 2.8vh; /* Увеличенный размер шрифта */
+    color: #ffffff; /* Белый цвет текста */
+    opacity: 1; /* Без прозрачности */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Легкая тень */
 }

@@ -6,7 +6,7 @@ import './SideBar.css';
 const menuList = [
   {
     header: "What we do",
-    marginBottom: 22, // Задаем margin-bottom для этого блока
+    marginBottom: 32,
     textList: [
       { high: "Strategy + R&D", low: "We are essential for forward-thinking enterprises, where strategies shape goals, and R&D drives innovation by exploring new technologies and methodologies.", video: "first.mp4" },
       { high: "Creative Direction", low: "We guide the visual and conceptual aspects of projects, ensuring cohesive messaging and emotional resonance.", video: "second.mp4" },
@@ -17,21 +17,21 @@ const menuList = [
   },
   {
     header: "Projects",
-    marginBottom: 45, // Уникальный отступ
+    marginBottom: 48,
     textList: [{ high: "We guide the visual and conceptual aspects of projects, ensuring cohesive messaging and emotional resonance.", low: "", video: "third.mp4" }],
   },
   {
     header: "Our team",
-    marginBottom: 43, // Уникальный отступ
+    marginBottom: 48,
     textList: [
-      { high: "Гришка Беспалый", low: "CEO", link: "/grisha" },
-      { high: "Карюшка Амритас", low: "Папок", link: "/karen" },
-      { high: "Платон Каратаев", low: "Мамасита", link: "/platon" },
+      { high: "Grishka Baspaly", low: "CEO", link: "/grisha" },
+      { high: "Karyuka Artemida", low: "CPIDO", link: "/karen" },
+      { high: "Arman Krasny", low: "Мамасита", link: "/platon" },
     ],
   },
   {
     header: "Get in touch",
-    marginBottom: 53, // Уникальный отступ
+    marginBottom: 58,
     textList: [{ high: "Fifth", low: "fifthLow", video: "five.mp4" }],
   },
 ];
@@ -39,21 +39,23 @@ const menuList = [
 function SideBar({ setActiveIndex, setVideoSource }) {
   const navigate = useNavigate();
 
-  // Устанавливаем начальные состояния
-  const [activeIndexInternal, setActiveIndexInternal] = useState(0); // "What we do" имеет индекс 0
-  const [activeTextIndex, setActiveTextIndex] = useState(0); // "Strategy + R&D" имеет индекс 0
+  const [activeIndexInternal, setActiveIndexInternal] = useState(0); // Active header index
+  const [activeTextIndex, setActiveTextIndex] = useState(0); // Active text index
 
   const handleHeaderClick = (index) => {
-    setActiveIndex(index === activeIndexInternal ? null : index);
-    setActiveIndexInternal(index === activeIndexInternal ? null : index);
-
-    // Автоматически открываем первый элемент "What we do", если это нужно
-    if (index === 0 && activeTextIndex === null) {
-      setActiveTextIndex(0); // Открываем "Strategy + R&D"
-    } else {
-      setActiveTextIndex(null); // Закрываем текст при переключении категории
+    if (activeIndexInternal !== index) {
+      setActiveIndex(index); 
+      setActiveIndexInternal(index);
+  
+      // Открыть первый пункт "What we do" по умолчанию
+      if (index === 0 && activeTextIndex === null) {
+        setActiveTextIndex(0);
+      } else {
+        setActiveTextIndex(null);
+      }
     }
   };
+  
 
   const handleTextClick = (textIndex, video, link) => {
     if (link) {
@@ -65,9 +67,8 @@ function SideBar({ setActiveIndex, setVideoSource }) {
   };
 
   useEffect(() => {
-    setVideoSource(menuList[0].textList[0].video); // Устанавливаем видео по умолчанию
+    setVideoSource(menuList[0].textList[0].video); // Set default video
   }, [setVideoSource]);
-  
 
   return (
     <div>
@@ -77,13 +78,21 @@ function SideBar({ setActiveIndex, setVideoSource }) {
       </div>
       <div className="SideBar">
         {menuList.map((data, index) => (
-          <div className="sideBarBlock" key={index}>
+          <div
+            className={`sideBarBlock ${
+              data.header === "Get in touch" ? "getInTouchBlock" : ""
+            }`}
+            key={index}
+          >
             <div
-              className="sideBarBlockHeadText"
+              className={`sideBarBlockHeadText ${
+                activeIndexInternal === index ? "active" : ""
+              } ${data.header === "Get in touch" ? "getInTouchHeadText" : ""}`}
               onClick={() => handleHeaderClick(index)}
               style={{
-                marginBottom: activeIndexInternal === index ? `${data.marginBottom}vh` : "0vh", // Используем marginBottom из menuList
-                transition: "margin-bottom 0.3s ease", // Плавный переход
+                marginBottom:
+                  activeIndexInternal === index ? `${data.marginBottom}vh` : "0vh",
+                transition: "margin-bottom 0.3s ease",
               }}
             >
               {data.header}
@@ -93,12 +102,18 @@ function SideBar({ setActiveIndex, setVideoSource }) {
                 {data.textList.map((text, textIndex) => (
                   <div key={textIndex}>
                     <div
-                      className="sideBarBlockText"
-                      onClick={() => handleTextClick(textIndex, text.video, text.link)}
+                      className={`sideBarBlockText ${
+                        activeTextIndex === textIndex ? "active" : ""
+                      }`}
+                      onClick={() =>
+                        handleTextClick(textIndex, text.video, text.link)
+                      }
                     >
                       {text.high}
                     </div>
-                    {activeTextIndex === textIndex && <div className="sideBarBlockLowText">{text.low}</div>}
+                    {activeTextIndex === textIndex && (
+                      <div className="sideBarBlockLowText">{text.low}</div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -109,5 +124,6 @@ function SideBar({ setActiveIndex, setVideoSource }) {
     </div>
   );
 }
+
 
 export default SideBar;

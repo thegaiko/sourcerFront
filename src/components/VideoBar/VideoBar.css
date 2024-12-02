@@ -6,8 +6,8 @@
   }
   
   .video {
-    width: 75vw;
-    height: 95vh;
+    width: 79vw;
+    height: 98vh;
     object-fit: cover;
     opacity: 1; /* Начальная видимость видео */
     transition: opacity 0.8s ease-in-out; /* Плавное изменение opacity */

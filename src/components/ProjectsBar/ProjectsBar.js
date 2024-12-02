@@ -37,7 +37,7 @@ function ProjectsBar() {
 
   return (
     <div className="projectsSide">
-      <div className="headText">Projects</div>
+      <div className={`headText ${hoveredText !== null ? 'hidden' : ''}`}>Projects</div>
       <div className="projects">
         <div className="textBox">
           <div className="row">

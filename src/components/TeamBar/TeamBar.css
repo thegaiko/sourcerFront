@@ -1,5 +1,6 @@
 .teamPhoto {
-    width: 70vw;
+    width: 78vw;
+    height: 95vh;
     border-radius: 20px;
     margin-left: 2vw;
     transition: filter 0.3s ease; /* Плавный переход для эффекта блюра */
